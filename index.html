@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Puntos de Examen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Calculadora de Puntos de Examen</h1>
+        <p>Examen de 100 preguntas | Correcta: +4 puntos | Incorrecta: -1 punto | En blanco: 0 puntos</p>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="question-container">
+        <div class="question-number" id="questionNumber">Pregunta 1 de 100</div>
+        <div id="questionText">¿Cómo deseas responder a esta pregunta?</div>
+        <div class="options">
+            <button class="option-btn" onclick="answerQuestion(true)">Correcta</button>
+            <button class="option-btn" onclick="answerQuestion(false)">Incorrecta</button>
+            <button class="option-btn" onclick="answerQuestion('blank')">En blanco</button>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" onclick="navigateQuestion(-1)" disabled>Anterior</button>
+        <button id="nextBtn" onclick="navigateQuestion(1)" disabled>Siguiente</button>
+    </div>
+
+    <div class="results" id="results">
+        <h2>Resultados Actuales</h2>
+        <p>Preguntas respondidas: <span id="answeredCount">0</span>/100</p>
+        <p>Correctas: <span id="correctCount">0</span></p>
+        <p>Incorrectas: <span id="incorrectCount">0</span></p>
+        <p>En blanco: <span id="blankCount">0</span></p>
+        <p>Puntuación actual: <span id="currentScore">0</span> puntos</p>
+        <p>Puntuación máxima posible: <span id="maxPossibleScore">400</span> puntos</p>
+    </div>
+
+    <h3>Resumen de preguntas</h3>
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color correct"></div>
+            <span>Correcta</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color incorrect"></div>
+            <span>Incorrecta</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color blank"></div>
+            <span>En blanco</span>
+        </div>
+    </div>
+    <ul class="summary" id="questionSummary"></ul>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
